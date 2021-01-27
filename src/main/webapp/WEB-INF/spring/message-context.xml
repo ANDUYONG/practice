@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 세션에 저장! -->
+	<bean id="localeResolver"
+		  class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	
+	<!-- 파일 엔코딩 및 확인, 환경설정 등등 -->
+	<bean id="messageSource"
+		  class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	<property name="basenames">
+		<list>
+			<value>classpath:locale/messages</value>
+		</list>
+	</property>
+	<property name="defaultEncoding" value="UTF-8"/>
+	<property name="cacheSeconds" value="60"/>
+	</bean>
+	<!-- 파일 엔코딩 및 확인, 환경설정 등등 -->
+</beans>
+
